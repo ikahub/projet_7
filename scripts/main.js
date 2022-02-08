@@ -17,6 +17,7 @@ class AllRecipes {
         anyRecipe.forEach(recipe => {
             const newR = new Recipe(recipe)
             newR.displayRecipe()
+            console.log(newR)
             console.log(newR.displayRecipe())
             //this.$recipes_section.appendChild()
             //const newRecipe = new Recipe(recipe)
