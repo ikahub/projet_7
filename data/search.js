@@ -28,34 +28,29 @@ export default class Recipe{
                 this.ustensils = data.ustensils
         }
 
-        async mainRecipe(){
-                this.displayRecipe()  
-                this.searchInputKeyup()
-        }
+        displayRecipe(){
 
-        displayRecipe(recipes){
-
-                /*recipes.forEach(recipe =>{
-                        document.getElementsByClassName('name').innerText = recipe.name
-                        console.log(recipe.name)
+                
+                        document.getElementsByClassName('name').innerText = this.name
+                        console.log(this.name)
                         document.getElementsByClassName('servings').innerText = "Pour " + this.servings + " personnes"
                         document.getElementsByClassName('time').innerText = "Temps de préparation : " + this.time
                         document.getElementsByClassName('description').innerText = this.description
                         document.getElementsByClassName('appliance').innerText = "Matériel : " + this.appliance
                         document.getElementsByClassName('ustensils').innerText = "Ustensiles : " + this.ustensils
         
-                        /*recipe.forEach(ingredient => {
-        
-                                document.getElementsByClassName('ingredients').innerText = ingredient.ingredient
+                        
+                                const ingredient = this.ingredients.ingredient
+
+                                document.getElementsByClassName('ingredients').innerText = this.ingredients.ingredient
                                 
-                                if(ingredient.unit){
-                                        document.getElementsByClassName('ingredients').innerText = ingredient.ingredient +":" + " " + ingredient.quantity + " " + ingredient.unit
+                                if(this.ingredients.unit){
+                                        document.getElementsByClassName('ingredients').innerText = this.ingredients.ingredient +":" + " " + ingredient.quantity + " " + ingredient.unit
                                         console.log(ingredient.unit)
                                 }else{
-                                        document.getElementsByClassName('ingredients').innerText = ingredient.ingredient +":" + " " + ingredient.quantity
+                                        document.getElementsByClassName('ingredients').innerText = this.ingredients.ingredient +":" + " " + this.ingredients.quantity
                                 }
-                        })
-                        })*/
+                        
         }
         searchInputKeyup(){
                 const searchRecipe = document.getElementById('recipe-search')
@@ -70,41 +65,8 @@ export default class Recipe{
                         console.log(filteredRecipes)
                 })
         }
+        
 }
-
-/*class recipePattern extends Recipe{
-        displayRecipe(recipes){
-                recipes.forEach(recipe => {
-                        document.getElementsByClassName('name') = "";
-                        document.getElementsByClassName('name') = this.name
-                        console.log(this.$name_dom)
-                        /*document.getElementsByClassName('servings').innerText = "Pour " + this.servings + " personnes"
-                        document.getElementsByClassName('time').innerText = "Temps de préparation : " + this.time
-                        document.getElementsByClassName('description').innerText = this.description
-                        document.getElementsByClassName('appliance').innerText = "Matériel : " + this.appliance
-                        document.getElementsByClassName('ustensils').innerText = "Ustensiles : " + this.ustensils*/
-               /* })
-                
-
-                /*this.ingredients.forEach(ingredient => {
-
-                        document.getElementsByClassName('ingredients').innerText = ingredient.ingredient
-                        
-                        if(ingredient.unit){
-                                document.getElementsByClassName('ingredients').innerText = ingredient.ingredient +":" + " " + ingredient.quantity + " " + ingredient.unit
-                                console.log(ingredient.unit)
-                        }else{
-                                document.getElementsByClassName('ingredients').innerText = ingredient.ingredient +":" + " " + ingredient.quantity
-                        }
-                })
-        }
-}
-
-const lol = new recipePattern()
-lol.displayRecipe()
-*/
-                
-
         /*searchInputKeyup(){
                 const searchRecipe = document.getElementById('recipe-search')
                 searchRecipe.addEventListener('keyup', () => {
