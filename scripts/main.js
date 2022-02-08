@@ -12,11 +12,11 @@ class AllRecipes {
 
     displayRecipes(anyRecipe){
         
-
+        
         anyRecipe.forEach(recipe => {
-            
-            const newRecipe = new Recipe(recipe)
-            console.log(newRecipe)
+            const newR = new Recipe(recipe)
+            newR.displayRecipe()
+            console.log(new Recipe(recipe))
             //const newRecipe = new Recipe(recipe)
             //console.log(this.recipeCall.displayRecipe(recipes))
         })
