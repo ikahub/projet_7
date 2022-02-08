@@ -3,7 +3,8 @@ import Recipe from '/data/search.js'
 
 class AllRecipes {
     constructor(){
-        this.$recipes_div = document.getElementsByClassName('div-recipe')
+        this.$recipes_section = document.getElementById('recipes')
+        console.log(this.$recipes_div)
     }
 
     async main(){
@@ -16,10 +17,12 @@ class AllRecipes {
         anyRecipe.forEach(recipe => {
             const newR = new Recipe(recipe)
             newR.displayRecipe()
-            console.log(new Recipe(recipe))
+            console.log(newR.displayRecipe())
+            //this.$recipes_section.appendChild()
             //const newRecipe = new Recipe(recipe)
             //console.log(this.recipeCall.displayRecipe(recipes))
         })
+        
     }
 }
 
