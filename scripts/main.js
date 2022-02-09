@@ -15,23 +15,36 @@ class Main {
   async main(){
     this.filteredRecipes = this.recipes
     this.displayRecipes()
+    this.displayFilter()
 
     this.searchInput = document.getElementById('recipe-search');
     this.searchInput.addEventListener('keyup', this.searchInputKeyup.bind(this))
+  }
+  displayFilter(){
+    const filterCntr = document.getElementById('div-filter')
+    filterCntr.innerHTML = ''
+    this.recipes.forEach(filter=> {
+      filterCntr.appendChild(filter.generateDomFilterEl())
+    })
   }
 
   displayRecipes() {
     const recipesCntr = document.getElementById('recipes')
     recipesCntr.innerHTML = ''
     this.filteredRecipes.forEach(recipe => {
-      recipesCntr.appendChild(recipe.generateDomEl())
+      recipesCntr.appendChild(recipe.generateDomRecipeEl())
     })
   }
   searchInputKeyup(e){
     this.searchString = e.target.value.toLocaleLowerCase()
-    this.filteredRecipes = this.recipes.filter((recipe) => {
+    this.filteredRecipes = this.recipes.filter(recipe => {
       return recipe.name.toLocaleLowerCase().includes(this.searchString) ||
-             recipe.description.toLocaleLowerCase().includes(this.searchString)
+             recipe.description.toLocaleLowerCase().includes(this.searchString) //||
+             //recipe.servings.toLocaleLowerCase().includes(this.searchString)
+             //recipe.time.toLocaleLowerCase().includes(this.searchString) ||
+             //recipe.ingredients.toLocaleLowerCase().includes(this.searchString) ||
+             //recipe.appliance.toLocaleLowerCase().includes(this.searchString) ||
+             //recipe.ustensils.toLocaleLowerCase().includes(this.searchString)
     })
     console.log(this.filteredRecipes)
     this.displayRecipes()

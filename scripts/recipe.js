@@ -1,5 +1,5 @@
 import recipeTmpl from "../templates/recipeTmpl.js"
-
+import filterTmpl from "../templates/filterTmpl.js"
 class Recipe {
 
   constructor(data = {name: "", servings: null, ingredients: [], time: null, description: "", appliance: "", ustensils: ""}){
@@ -12,7 +12,9 @@ class Recipe {
     this.ustensils = data?.ustensils || []
   }
 
-  generateDomEl() {
+  generateDomRecipeEl() {
+
+    /////// RECIPE GENERATION ///////
     const domRecipe = document.createElement('div')
     domRecipe.classList.add('div-recipe')
     domRecipe.innerHTML = recipeTmpl
@@ -20,7 +22,6 @@ class Recipe {
     this.ingredients.forEach(ingredient => {
       if(ingredient.unit){
         domRecipe.querySelector('.ingredients').innerText = ingredient.ingredient + ": " + ingredient.quantity + " " + ingredient.unit
-
       }else{
         domRecipe.querySelector('.ingredients').innerText = ingredient.ingredient + ": " + ingredient.quantity
       }
@@ -31,8 +32,32 @@ class Recipe {
     domRecipe.querySelector('.appliance').innerText = this.appliance
     domRecipe.querySelector('.ustensils').innerText = this.ustensils
     domRecipe.querySelector('.name').innerText = this.name
+
     return domRecipe
   }
+  generateDomFilterEl(){
+    const domIngredientsFilter = document.createElement('ul')
+    domIngredientsFilter.classList.add('ingredients-liste')
+    domIngredientsFilter.innerHTML = filterTmpl
+    this.ingredients.forEach(ingredient => {
+
+      const newIngredientsArray = []
+      //console.log(ingredient)
+      for(let i = 0; i < ingredient.ingredient.length; i++){
+          const nameIngredient = ingredient.ingredient
+          if(newIngredientsArray.indexOf(nameIngredient) === -1){
+            newIngredientsArray.push(nameIngredient);
+            const eachIngredientThatFilter = document.createElement('li')
+            eachIngredientThatFilter.innerHTML = nameIngredient
+            domIngredientsFilter.appendChild(eachIngredientThatFilter)
+            console.log(ingredient)
+          }
+          console.log(newIngredientsArray)
+      }
+    })
+    return domIngredientsFilter
+  }
+
 }
 
 export default Recipe
