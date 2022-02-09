@@ -25,3 +25,8 @@
     display: flex;
     flex-direction: column;
 }
+
+#div-filter{
+    display: flex;
+    margin: 2rem;
+}
