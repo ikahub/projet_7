@@ -20,7 +20,7 @@ export default [
             },
             {
                 "ingredient" : "Sucre",
-                "quantity" : 30,
+                "quantite" : 30,
                 "unit" : "grammes"
             },
             {
@@ -52,7 +52,7 @@ export default [
             },
             {
                 "ingredient" : "Carotte",
-                "quantity" : 1
+                "quantite" : 1
             },
             {
                 "ingredient" : "Citron Vert",
